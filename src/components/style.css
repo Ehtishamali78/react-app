@@ -1,0 +1,161 @@
+/* General Styling */
+body {
+  background-color: #f0f8ff;
+}
+
+.bg-white {
+  background-color: #ffffff;
+}
+
+/* Login & SignUp Form Sty;ing */
+
+/* Form Container */
+.form-container {
+  max-width: 450px;
+  margin: 60px auto;
+  padding: 40px;
+  border: none;
+  border-radius: 15px;
+  background: linear-gradient(to bottom right, #ffffff, #f0f4f8);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Title Styling */
+.form-title {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 25px;
+  color: #2c3e50;
+}
+
+/* Input Fields */
+.custom-input {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 1rem;
+  background-color: #f7f9fc;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.custom-input:focus {
+  border-color: #3498db;
+  background-color: #ffffff;
+  box-shadow: 0 0 8px rgba(52, 152, 219, 0.4);
+}
+
+/* Button Styling */
+.custom-button {
+  font-size: 1.2rem;
+  padding: 12px;
+  border-radius: 8px;
+  background-color: #3498db;
+  color: #ffffff;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  border: none;
+}
+
+.custom-button:hover {
+  background-color: #2980b9;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(41, 128, 185, 0.3);
+}
+
+.custom-button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Link Styling */
+.text-center a {
+  color: #3498db;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.text-center a:hover {
+  color: #2980b9;
+  text-decoration: underline;
+}
+
+/* Alert Styling */
+.alert {
+  max-width: 450px;
+  margin: 10px auto 30px auto;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+  .form-container {
+    padding: 25px;
+  }
+
+  .form-title {
+    font-size: 1.6rem;
+  }
+
+  .custom-input {
+    font-size: 0.9rem;
+  }
+
+  .custom-button {
+    font-size: 1rem;
+  }
+}
+
+
+/* Dashboard-specific styles */
+  .card {
+    border-radius: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .text-primary {
+    color: #007bff;
+  }
+
+/* Styles for the search feature */
+  .input-group {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+/* Styles for the upload page */
+  .customBtn {
+    text-decoration: none !important;
+    color: #ffff !important;
+  }
+
+/* Video Player Styling */
+  .video-player {
+    display: block;
+    max-width: 800px; /* Restrict maximum width */
+    width: 100%; /* Ensure responsiveness */
+    height: 500px; /* Maintain aspect ratio */
+    margin: 0 auto; /* Center the video */
+    border: 1px solid #ddd; /* Optional: Add a border for separation */
+    border-radius: 8px; /* Optional: Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for a modern look */
+  }
+  @media (max-width: 576px) {
+    .video-player {
+      max-width: 100%; /* Allow the video to take up the entire container width on small screens */
+    }
+  }
+  
