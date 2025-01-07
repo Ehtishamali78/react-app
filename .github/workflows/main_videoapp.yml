@@ -39,7 +39,6 @@ jobs:
     needs: build
     environment:
       name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     
     steps:
       # Download build artifact from the build job
@@ -48,16 +47,14 @@ jobs:
         with:
           name: react-app-build
 
-      # Extract build artifact
-      - name: Extract build artifact
-        run: |
-          mkdir -p build
-          unzip react-app-build.zip -d build
+      # Prepare build directory
+      - name: Prepare build directory
+        run: mv react-app-build/* ./build
 
       # Deploy the artifact to Azure Web App
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'videoapp'
-          package: ./build
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_7C298DEDCCBA43D6944A3EC516B3F841 }}
+          package: ./build
