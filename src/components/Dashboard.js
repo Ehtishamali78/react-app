@@ -1,94 +1,125 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom'; // Import useNavigate
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import axios from "axios";
 import "./style.css";
+import placeholderImage from "../img/videoplayer.jpg";
 
 const Dashboard = () => {
   const [videos, setVideos] = useState([]);
-  const [error, setError] = useState(null); // Handle errors
-  const [loading, setLoading] = useState(true); // Handle loading state
-  const navigate = useNavigate(); // Initialize navigate
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/api/videos/latest')
-      .then(response => {
+      .get("http://localhost:5000/api/videos/latest")
+      .then((response) => {
         setVideos(response.data);
         setLoading(false);
       })
-      .catch(error => {
-        console.error('Error fetching videos:', error);
-        setError('Failed to load videos. Please try again later.');
+      .catch((error) => {
+        console.error("Error fetching videos:", error);
+        setError("Failed to load videos. Please try again later.");
         setLoading(false);
       });
   }, []);
 
   const handleLogout = () => {
-    // Clear localStorage
-    localStorage.removeItem('token');
-    localStorage.removeItem('role');
-
-    // Redirect to login page
-    navigate('/');
+    localStorage.removeItem("token");
+    localStorage.removeItem("role");
+    navigate("/");
   };
 
   return (
-    <div className="container mt-5">
-      {/* Logout & Search Button */}
-      <div className="d-flex justify-content-between mb-3">
-        <Link className='btn btn-success customBtn' to="/search">Search Videos</Link>
-        <button onClick={handleLogout} className="btn btn-danger">
-          Logout
-        </button>
-      </div>
-      <h2 className="text-center text-primary mb-4">Latest Videos</h2>
-
-      {/* Loading spinner */}
-      {loading && (
-        <div className="text-center">
-          <div className="spinner-border text-primary" role="status">
-            <span className="visually-hidden">Loading...</span>
+    <div>
+      {/* Navbar */}
+      <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div className="container">
+          <Link className="navbar-brand text-primary" to="/dashboard">
+            VideoApp
+          </Link>
+          <div className="collapse navbar-collapse justify-content-end">
+            <ul className="navbar-nav">
+              {/* <li className="nav-item">
+                <Link className="nav-link" to="/dashboard">
+                  Dashboard
+                </Link>
+              </li> */}
+              <li className="nav-item">
+                <Link className="nav-link" to="/search">
+                  Search Videos
+                </Link>
+              </li>
+              <li className="nav-item">
+                <button
+                  className="btn btn-danger"
+                  onClick={handleLogout}
+                >
+                  Logout
+                </button>
+              </li>
+            </ul>
           </div>
         </div>
-      )}
+      </nav>
 
-      {/* Error message */}
-      {error && (
-        <div className="alert alert-danger text-center" role="alert">
-          {error}
-        </div>
-      )}
+      <div className="container mt-5">
+        <h2 className="text-center text-primary mb-4">Latest Videos</h2>
 
-      {/* Render videos */}
-      {!loading && !error && (
-        <div className="row g-4">
-          {videos.length > 0 ? (
-            videos.map(video => (
-              <div className="col-md-4 col-sm-6" key={video.id}>
-                <div className="card h-100 shadow-sm">
-                  <div className="card-body">
-                    <h5 className="card-title">{video.title}</h5>
-                    <p className="card-text text-muted">
-                      <strong>Hashtags:</strong>{' '}
-                      {Array.isArray(video.hashtags) ? video.hashtags.join(', ') : 'No hashtags available'}
-                    </p>
-                  </div>
-                  <div className="card-footer">
-                    <Link
-                      to={`/videos/${video.id}`}
-                      className="btn btn-primary w-100"
-                    >
-                      Watch Video
-                    </Link>
+        {/* Loading spinner */}
+        {loading && (
+          <div className="text-center">
+            <div className="spinner-border text-primary" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        )}
+
+        {/* Error message */}
+        {error && (
+          <div className="alert alert-danger text-center" role="alert">
+            {error}
+          </div>
+        )}
+
+        {/* Render videos */}
+        {!loading && !error && (
+          <div className="row g-4">
+            {videos.length > 0 ? (
+              videos.map((video) => (
+                <div className="col-md-4 col-sm-6" key={video.id}>
+                  <div className="card video-card h-100 shadow-sm">
+                    <img
+                      src={video.thumbnail || placeholderImage} // Use placeholder if thumbnail is missing
+                      className="card-img-top"
+                      alt={video.title}
+                    />
+                    <div className="card-body">
+                      <h5 className="card-title">{video.title}</h5>
+                      <p className="card-text text-muted">
+                        <strong>Hashtags:</strong>{" "}
+                        {Array.isArray(video.hashtags)
+                          ? video.hashtags.join(", ")
+                          : "No hashtags available"}
+                      </p>
+                    </div>
+                    <div className="card-footer text-center">
+                      <Link
+                        to={`/videos/${video.id}`}
+                        className="btn btn-primary w-100 customBtn"
+                      >
+                        Watch Video
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))
-          ) : (
-            <div className="text-center text-muted">No videos available.</div>
-          )}
-        </div>
-      )}
+              ))
+            ) : (
+              <div className="text-center text-muted">No videos available.</div>
+            )}
+          </div>
+        )}
+      </div>
     </div>
   );
 };

@@ -49,51 +49,78 @@ const VideoPlayer = () => {
   }
 
   return (
-    <div className="container mt-5">
-      <div className="d-flex justify-content-between mb-4">
-        <Link className='btn btn-secondary customBtn' to="/dashboard">Dashboard</Link>
-        <button className="btn btn-danger" onClick={handleLogout}>
-          Logout
-        </button>
-      </div>
-      {video ? (
-        <>
-          <h2 className="text-center text-primary mb-4">{video.title}</h2>
-          {/* <video controls className="video-player mb-4" src={`http://localhost:5000${video.videoUrl}`}></video> */}
-          <video controls className="video-player mb-4" src={`${video.videoUrl}`}></video>
-
-          <div>
-            <h3 className="text-secondary">Comments</h3>
-            {comments.length > 0 ? (
-              comments.map((comment, index) => (
-                <div key={index} className="mb-2">
-                  <p className="mb-0">
-                    <strong>{comment.username || 'Anonymous'} : </strong> {comment.text}
-                  </p>
-                  {/* <p></p> */}
-                </div>
-              ))
-            ) : (
-              <p>No comments yet. Be the first to comment!</p>
-            )}
-
-            <div className="input-group mt-3">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Add a comment"
-                value={newComment}
-                onChange={(e) => setNewComment(e.target.value)}
-              />
-              <button className="btn btn-primary" onClick={handleCommentSubmit}>
-                Submit
-              </button>
-            </div>
+    <div>
+      {/* Navbar */}
+      <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div className="container">
+          <Link className="navbar-brand text-primary" to="/dashboard">
+            VideoApp
+          </Link>
+          <div className="collapse navbar-collapse justify-content-end">
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <Link className="nav-link" to="/search">
+                  Search Videos
+                </Link>
+              </li>
+              <li className="nav-item">
+                <button
+                  className="btn btn-danger"
+                  onClick={handleLogout}
+                >
+                  Logout
+                </button>
+              </li>
+            </ul>
           </div>
-        </>
-      ) : (
-        <p>Loading video...</p>
-      )}
+        </div>
+      </nav>
+      <div className="container mt-5">
+        {/* <div className="d-flex justify-content-between mb-4">
+          <Link className='btn btn-secondary customBtn' to="/dashboard">Dashboard</Link>
+          <button className="btn btn-danger" onClick={handleLogout}>
+            Logout
+          </button>
+        </div> */}
+        {video ? (
+          <>
+            <h2 className="text-center text-primary mb-2">{video.title}</h2>
+            {/* <video controls className="video-player mb-4" src={`http://localhost:5000${video.videoUrl}`}></video> */}
+            <video controls className="video-player mb-4" src={`${video.videoUrl}`}></video>
+
+            <div>
+              <h3 className="text-secondary">Comments</h3>
+              {comments.length > 0 ? (
+                comments.map((comment, index) => (
+                  <div key={index} className="mb-2">
+                    <p className="mb-0">
+                      <strong>{comment.username || 'Anonymous'} : </strong> {comment.text}
+                    </p>
+                    {/* <p></p> */}
+                  </div>
+                ))
+              ) : (
+                <p>No comments yet. Be the first to comment!</p>
+              )}
+
+              <div className="input-group mt-3">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Add a comment"
+                  value={newComment}
+                  onChange={(e) => setNewComment(e.target.value)}
+                />
+                <button className="btn btn-primary" onClick={handleCommentSubmit}>
+                  Submit
+                </button>
+              </div>
+            </div>
+          </>
+        ) : (
+          <p>Loading video...</p>
+        )}
+      </div>
     </div>
   );
 };

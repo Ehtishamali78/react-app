@@ -1,7 +1,7 @@
-/* General Styling */
+/* General Styling
 body {
   background-color: #f0f8ff;
-}
+} */
 
 .bg-white {
   background-color: #ffffff;
@@ -83,7 +83,7 @@ body {
 
 .text-center a:hover {
   color: #2980b9;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /* Alert Styling */
@@ -158,4 +158,65 @@ body {
       max-width: 100%; /* Allow the video to take up the entire container width on small screens */
     }
   }
+
+
+  /* General Styling */
+body {
+  background: linear-gradient(to bottom, #f0f8ff, #ffffff);
+  min-height: 100vh;
+}
+
+/* Navbar Styling */
+.navbar {
+  padding: 15px 20px;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-link {
+  font-size: 1rem;
+  color: #007bff;
+  margin-right: 10px;
+}
+
+.nav-link:hover {
+  text-decoration: none;
+}
+
+/* Video Card Styling */
+.video-card {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.video-card img {
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-footer {
+  background-color: #f8f9fa;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .video-card img {
+    height: 150px;
+  }
+}
   
