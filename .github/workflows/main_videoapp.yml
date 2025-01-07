@@ -47,14 +47,10 @@ jobs:
         with:
           name: react-app-build
 
-      # Prepare build directory
-      - name: Prepare build directory
-        run: mv react-app-build/* ./build
-
       # Deploy the artifact to Azure Web App
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'videoapp'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_7C298DEDCCBA43D6944A3EC516B3F841 }}
-          package: ./build
+          package: react-app-build/
