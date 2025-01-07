@@ -53,4 +53,4 @@ jobs:
         with:
           app-name: 'videoapp'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_7C298DEDCCBA43D6944A3EC516B3F841 }}
-          package: react-app-build/
+          package: .
