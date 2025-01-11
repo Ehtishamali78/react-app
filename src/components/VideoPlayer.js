@@ -12,7 +12,7 @@ const VideoPlayer = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/videos/${id}`)
+      .get(`https://videoapp-backend-f8bccfcvawasg0a9.northeurope-01.azurewebsites.net/api/videos/${id}`)
       .then((response) => {
         setVideo(response.data.video);
         setComments(response.data.comments);
@@ -36,7 +36,7 @@ const VideoPlayer = () => {
     if (!newComment.trim()) return;
 
     axios
-      .post(`http://localhost:5000/api/videos/${id}/comments`, { text: newComment })
+      .post(`https://videoapp-backend-f8bccfcvawasg0a9.northeurope-01.azurewebsites.net/api/videos/${id}/comments`, { text: newComment })
       .then((response) => {
         setComments([...comments, response.data]); // Add new comment
         setNewComment(''); // Clear input
@@ -85,7 +85,7 @@ const VideoPlayer = () => {
         {video ? (
           <>
             <h2 className="text-center text-primary mb-2">{video.title}</h2>
-            {/* <video controls className="video-player mb-4" src={`http://localhost:5000${video.videoUrl}`}></video> */}
+            {/* <video controls className="video-player mb-4" src={`https://videoapp-backend-f8bccfcvawasg0a9.northeurope-01.azurewebsites.net${video.videoUrl}`}></video> */}
             <video controls className="video-player mb-4" src={`${video.videoUrl}`}></video>
 
             <div>

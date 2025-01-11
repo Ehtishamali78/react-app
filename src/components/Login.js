@@ -16,7 +16,7 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:5000/api/auth/login', credentials)
+    axios.post('https://videoapp-backend-f8bccfcvawasg0a9.northeurope-01.azurewebsites.net/api/auth/login', credentials)
       .then(response => {
         const { token, role } = response.data;
 

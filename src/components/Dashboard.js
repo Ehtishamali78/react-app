@@ -12,7 +12,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/videos/latest")
+      .get("https://videoapp-backend-f8bccfcvawasg0a9.northeurope-01.azurewebsites.net/api/videos/latest")
       .then((response) => {
         setVideos(response.data);
         setLoading(false);

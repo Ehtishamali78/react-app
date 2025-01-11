@@ -39,7 +39,7 @@ const UploadVideo = () => {
 
     try {
       const token = localStorage.getItem('token'); // Assuming token is stored in localStorage
-      await axios.post('http://localhost:5000/api/videos/uploadBlob', formData, {
+      await axios.post('https://videoapp-backend-f8bccfcvawasg0a9.northeurope-01.azurewebsites.net/api/videos/uploadBlob', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${token}`,

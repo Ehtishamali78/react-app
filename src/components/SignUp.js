@@ -23,7 +23,7 @@ const SignUp = () => {
       return;
     }
 
-    axios.post('http://localhost:5000/api/auth/signup', userData)
+    axios.post('https://videoapp-backend-f8bccfcvawasg0a9.northeurope-01.azurewebsites.net/api/auth/signup', userData)
       .then(response => {
         setShowAlert(true);
         setErrorMessage(''); // Clear any previous error message

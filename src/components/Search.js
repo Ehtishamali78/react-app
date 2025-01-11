@@ -13,7 +13,7 @@ const Search = () => {
   const handleSearch = () => {
     if (query.trim() === "") return; // Prevent empty search
     axios
-      .get(`http://localhost:5000/api/videos/search?query=${query}`)
+      .get(`https://videoapp-backend-f8bccfcvawasg0a9.northeurope-01.azurewebsites.net/api/videos/search?query=${query}`)
       .then(response => {
         setResults(response.data);
         setHasSearched(true); // Mark that a search has been performed
