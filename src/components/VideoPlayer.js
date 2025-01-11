@@ -59,8 +59,13 @@ const VideoPlayer = () => {
           <div className="collapse navbar-collapse justify-content-end">
             <ul className="navbar-nav">
               <li className="nav-item">
+                <Link className="nav-link" to="/dashboard">
+                  Dashboard
+                </Link>
+              </li>
+              <li className="nav-item">
                 <Link className="nav-link" to="/search">
-                  Search Videos
+                  Search
                 </Link>
               </li>
               <li className="nav-item">
@@ -75,47 +80,46 @@ const VideoPlayer = () => {
           </div>
         </div>
       </nav>
-      <div className="container mt-5">
-        {/* <div className="d-flex justify-content-between mb-4">
-          <Link className='btn btn-secondary customBtn' to="/dashboard">Dashboard</Link>
-          <button className="btn btn-danger" onClick={handleLogout}>
-            Logout
-          </button>
-        </div> */}
+      <div className="row videoplayer-container mt-5">
         {video ? (
           <>
-            <h2 className="text-center text-primary mb-2">{video.title}</h2>
+          <div className='col-md-8'>
+            <h2 className="text-center colorPrimary mb-2">{video.title}</h2>
             {/* <video controls className="video-player mb-4" src={`https://videoapp-backend-f8bccfcvawasg0a9.northeurope-01.azurewebsites.net${video.videoUrl}`}></video> */}
             <video controls className="video-player mb-4" src={`${video.videoUrl}`}></video>
-
-            <div>
-              <h3 className="text-secondary">Comments</h3>
-              {comments.length > 0 ? (
-                comments.map((comment, index) => (
-                  <div key={index} className="mb-2">
-                    <p className="mb-0">
-                      <strong>{comment.username || 'Anonymous'} : </strong> {comment.text}
-                    </p>
-                    {/* <p></p> */}
-                  </div>
-                ))
-              ) : (
-                <p>No comments yet. Be the first to comment!</p>
-              )}
-
-              <div className="input-group mt-3">
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Add a comment"
-                  value={newComment}
-                  onChange={(e) => setNewComment(e.target.value)}
-                />
-                <button className="btn btn-primary" onClick={handleCommentSubmit}>
-                  Submit
-                </button>
+          </div>
+          <div className='col-md-4'>
+            <div className="comments-section">
+              <h3 className="text-secondary text-danger">Comments</h3>
+              <div className="comments-container">
+                {comments.length > 0 ? (
+                  comments.map((comment, index) => (
+                    <div key={index} className="comment mb-2">
+                      <p className="mb-0">
+                        <strong className='colorPrimary'>{comment.username || 'Anonymous'}:</strong> {comment.text}
+                      </p>
+                    </div>
+                  ))
+                ) : (
+                  <p>No comments yet. Be the first to comment!</p>
+                )}
               </div>
             </div>
+          </div>
+          <div className='row col-md-8'>
+            <div className="input-group">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Add a comment"
+                value={newComment}
+                onChange={(e) => setNewComment(e.target.value)}
+              />
+              <button className="btn btn-primary bgPrimary" onClick={handleCommentSubmit}>
+                Submit
+              </button>
+            </div>
+          </div>
           </>
         ) : (
           <p>Loading video...</p>

@@ -1,8 +1,14 @@
-/* General Styling
+/* General Styling */
 body {
-  background-color: #f0f8ff;
-} */
-
+  background: linear-gradient(to bottom, #f0f8ff, #ffffff);
+  min-height: 100vh;
+}
+.colorPrimary {
+  color: #3183b9 !important;
+}
+.bgPrimary {
+  background-color: #3183b9 !important;
+}
 .bg-white {
   background-color: #ffffff;
 }
@@ -143,6 +149,10 @@ body {
   }
 
 /* Video Player Styling */
+  .videoplayer-container {
+    max-width: 100%;
+  }
+
   .video-player {
     display: block;
     max-width: 800px; /* Restrict maximum width */
@@ -151,6 +161,7 @@ body {
     margin: 0 auto; /* Center the video */
     border: 1px solid #ddd; /* Optional: Add a border for separation */
     border-radius: 8px; /* Optional: Rounded corners */
+    background-color: #211e1e;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for a modern look */
   }
   @media (max-width: 576px) {
@@ -159,31 +170,59 @@ body {
     }
   }
 
-
-  /* General Styling */
-body {
-  background: linear-gradient(to bottom, #f0f8ff, #ffffff);
-  min-height: 100vh;
-}
+  .comments-section {
+    width: 500px; /* Fixed width for the comment section */
+    max-height: 500px; /* Fixed height for scrollable area */
+    overflow-y: auto; /* Enable scrolling */ 
+  }
+  
+  .comments-container {
+    padding: 10px; /* Add padding inside the comments container */
+    border: 1px solid #ddd; /* Optional: Add a border for separation */
+    border-radius: 8px; /* Optional: Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for a modern look */
+    background-color: #fff;
+  }
+  
+  .comment {
+    padding: 10px;
+    border-bottom: 1px solid #ddd; /* Separate each comment */
+  }
+  
+  .comment:last-child {
+    border-bottom: none; /* Remove border for the last comment */
+  }
 
 /* Navbar Styling */
 .navbar {
+  background-color: #333 !important;
   padding: 15px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+  border-bottom: 3px solid #3183b9;
 }
 
 .navbar-brand {
-  font-size: 1.5rem;
+  font-size: 1.75rem !important;
   font-weight: bold;
+  color: #fff !important;
 }
 
 .nav-link {
-  font-size: 1rem;
-  color: #007bff;
+  font-size: 1rem !important;
+  color: #fff;
+  font-weight: 500;
   margin-right: 10px;
+  padding: 5px 15px;
+  border: 2px solid transparent !important;
+  border-radius: 5px !important;
+  transition: 0.3s !important;
 }
 
-.nav-link:hover {
+.nav-link:focus, .nav-link:active,.nav-link:hover {
   text-decoration: none;
+  background-color: #3183b9 !important;
+  /* border-color: #336d71 !important; */
+  color: #ffff !important;
 }
 
 /* Video Card Styling */

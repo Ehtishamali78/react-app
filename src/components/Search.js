@@ -45,6 +45,16 @@ const Search = () => {
           <div className="collapse navbar-collapse justify-content-end">
             <ul className="navbar-nav">
               <li className="nav-item">
+                <Link className="nav-link" to="/dashboard">
+                  Dashboard
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/search">
+                  Search
+                </Link>
+              </li>
+              <li className="nav-item">
                 <button
                   className="btn btn-danger"
                   onClick={handleLogout}
@@ -58,7 +68,7 @@ const Search = () => {
       </nav>
 
       <div className="container mt-5">
-        <h2 className="text-center text-primary mb-4">Search Videos</h2>
+        <h2 className="text-center colorPrimary mb-4">Search Videos</h2>
         <div className="input-group mb-4">
           <input
             type="text"
@@ -67,7 +77,7 @@ const Search = () => {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
-          <button className="btn btn-primary" onClick={handleSearch}>
+          <button className="btn btn-primary bgPrimary" onClick={handleSearch}>
             Search
           </button>
         </div>

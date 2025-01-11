@@ -40,14 +40,14 @@ const Dashboard = () => {
           </Link>
           <div className="collapse navbar-collapse justify-content-end">
             <ul className="navbar-nav">
-              {/* <li className="nav-item">
+              <li className="nav-item">
                 <Link className="nav-link" to="/dashboard">
                   Dashboard
                 </Link>
-              </li> */}
+              </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/search">
-                  Search Videos
+                  Search
                 </Link>
               </li>
               <li className="nav-item">
@@ -64,7 +64,7 @@ const Dashboard = () => {
       </nav>
 
       <div className="container mt-5">
-        <h2 className="text-center text-primary mb-4">Latest Videos</h2>
+        <h2 className="text-center colorPrimary mb-4">Latest Videos</h2>
 
         {/* Loading spinner */}
         {loading && (
@@ -106,7 +106,7 @@ const Dashboard = () => {
                     <div className="card-footer text-center">
                       <Link
                         to={`/videos/${video.id}`}
-                        className="btn btn-primary w-100 customBtn"
+                        className="btn btn-primary w-100 customBtn bgPrimary"
                       >
                         Watch Video
                       </Link>
