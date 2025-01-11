@@ -3,12 +3,15 @@ body {
   background: linear-gradient(to bottom, #f0f8ff, #ffffff);
   min-height: 100vh;
 }
+
 .colorPrimary {
   color: #3183b9 !important;
 }
+
 .bgPrimary {
   background-color: #3183b9 !important;
 }
+
 .bg-white {
   background-color: #ffffff;
 }

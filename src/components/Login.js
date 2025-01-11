@@ -60,7 +60,7 @@ const Login = () => {
       )}
 
       <form onSubmit={handleSubmit} className="form-container">
-        <h2 className="form-title">Login</h2>
+        <h2 className="form-title colorPrimary"><strong>Login</strong></h2>
         <div className="mb-3">
           <label htmlFor="username" className="form-label">Username</label>
           <input

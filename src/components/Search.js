@@ -109,7 +109,7 @@ const Search = () => {
                   <div className="card-footer text-center">
                     <Link
                       to={`/videos/${video.id}`}
-                      className="btn btn-primary w-100 customBtn"
+                      className="btn btn-primary w-100 customBtn bgPrimary"
                     >
                       Watch Video
                     </Link>
